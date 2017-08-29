@@ -11,7 +11,8 @@ DIRNAME=`dirname $0`
 DEVICE=$1
 
 
-# Define as partições para o padrão utilizado no riso (Partição 1 - Recovery, Partição 4 - Dados, Partição 5 - SWAP, Partição 6 - EFI)
+# Define as partições para o padrão utilizado no riso (Partição 1 - Recovery, Partição 2 - Windows,Partição 3 - Linux, 
+# Partição 4 - Dados, Partição 5 - SWAP, Partição 6 - EFI)
 RECOVERY=$DEVICE"1"
 WINDOWS=$DEVICE"2"
 LINUX=$DEVICE"3"

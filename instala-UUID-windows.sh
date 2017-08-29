@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# formata-windows-UUID.sh 
-# formata a particao windows instalando a UUID
+# instalar-UUID-windows.sh 
+# Instala UUID no windows
 
 # Verifica os parâmetros do disco (ex:/dev/sda) e o arquivo de particionamento (ex: HD500)
 
@@ -18,7 +18,7 @@ DEVICE=$1
 
 
 # Define as partições windows e recovery utilizadas no riso (ex: Partição 1 - Recovery, Partição 2 - Windows, Partição 3 - Linux, 
-# Partição 4 - Dados, Partição 5 - SWAP e Partição 6 - UEFI)
+# Partição 5 - Dados, Partição 6 - SWAP)
 
 RECOVERY=$DEVICE"1"
 WINDOWS=$DEVICE"2"
@@ -29,22 +29,20 @@ WINDOWS=$DEVICE"2"
 source $DIRNAME/riso.cfg
 
 
-echo "Formatando a partição windows e aplicando a UUID."
+echo "Atribuindo a UUID na partição windows."
 
-# Formata a partição windows, trocando a UUID.
-
-mkfs.${sa_partwindows} -f -Fq  $WINDOWS
+# Atribui a UUID na partição windows.
 
 u=${partwindows^^}
 
-echo ${u:14:2}${u:12:2}${u:10:2}${u:8:2}${u:6:2}${u:4:2}${u:2:2}${u:0:2}| xxd -r -p | dd of=$WINDOWS bs=8 count=1 seek=9
+echo ${u:14:2}${u:12:2}${u:10:2}${u:8:2}${u:6:2}${u:4:2}${u:2:2}${u:0:2} | xxd -r -p | dd of=$WINDOWS bs=8 count=1 seek=9
 
-echo "Formatação da partição windows e UUID aplicada com sucesso"
+echo "Atribuição da UUID na partição windows realizada com sucesso"
 
 sleep 3
 
 
-echo "Montando as partições recovery, /dev, /proc, /sys e EFI  no diretorio /mnt..."
+echo "Montando as partições recovery, /dev, /proc, /sys e /efi  no diretorio /mnt..."
 
 #Monta a partição recovery presente no disco.(ex:sda1)
 
@@ -83,4 +81,4 @@ echo "Partições desmontadas com sucesso"
 
 sleep 3
 
-echo "Formatação da partição windows finalizada com sucesso."
+echo "Atribuição da UUID na partição windows finalizada com sucesso."
