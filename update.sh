@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Verifica parâmetros do disco (ex:/dev/sda) e arquivo de particionamento (ex: HD500.gpt)
-if [ $# -ne 2 ]; then
+if [ $# -ne 1 ]; then
    echo "Utilização: $0 [Disco]";
    exit 1;
 fi
