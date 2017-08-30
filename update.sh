@@ -11,14 +11,15 @@ DIRNAME=`dirname $0`
 DEVICE=$1
 
 
-# Define as partições para o padrão utilizado no riso (Partição 1 - Recovery, Partição 2 - Windows,Partição 3 - Linux, 
-# Partição 4 - Dados, Partição 5 - SWAP, Partição 6 - EFI)
-RECOVERY=$DEVICE"1"
-WINDOWS=$DEVICE"2"
-LINUX=$DEVICE"3"
-DADOS=$DEVICE"4"
-SWAP=$DEVICE"5"
-EFI=$DEVICE"6"
+# Define as partições para o padrão utilizado no riso (Partição 1 - EFI Partição 2 - Recovery, Partição 3 - Windows,
+# Partição 4 - Linux, Partição 5 - Dados, Partição 6 - SWAP, )
+EFI=$DEVICE"1"
+RECOVERY=$DEVICE"2"
+WINDOWS=$DEVICE"3"
+LINUX=$DEVICE"4"
+DADOS=$DEVICE"5"
+SWAP=$DEVICE"6"
+
 
 # Carrega as variáveis do arquivo riso.cfg
 source $DIRNAME/riso.cfg
