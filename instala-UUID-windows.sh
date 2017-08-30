@@ -48,9 +48,10 @@ echo "Montando as partições recovery, /dev, /proc, /sys e /efi  no diretorio /
 
 mount $RECOVERY /mnt
 mount $EFI /mnt/boot/efi
-mount --bind /dev/ /mnt/dev/
-mount --bind /proc/ /mnt/proc/
-mount --bind /sys/ /mnt/sys/
+for i in /sys /proc /dev; do mount --bind $i /mnt$i; done
+#mount --bind /dev/ /mnt/dev/
+#mount --bind /proc/ /mnt/proc/
+#mount --bind /sys/ /mnt/sys/
 
 echo "Partições montadas com sucesso."
 
@@ -70,10 +71,10 @@ sleep 3
 echo "Desmontando as partições montadas no diretório /mnt..."
 
 # Desmonta as partições montadas no diretório /mnt
-
-umount /mnt/dev
-umount /mnt/proc
-umount /mnt/sys
+for i in /sys /proc /dev; do umount /mnt$i; done
+#umount /mnt/dev
+#umount /mnt/proc
+#umount /mnt/sys
 umount $EFI
 umount $RECOVERY
 
