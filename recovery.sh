@@ -60,16 +60,19 @@ echo "Partição RECOVERY restaurada."
 #Instala o grub na partição montada no diretório /mnt
 mkdir -p /mnt/boot/efi
 mount $EFI /mnt/boot/efi
-mount --bind /dev/ /mnt/dev/
-mount --bind /proc/ /mnt/proc/
-mount --bind /sys/ /mnt/sys/
+#alterando para uma forma mais inteligente de montar as pastas
+for i in /sys /proc /dev; do mount --bind $i /mnt$i; done
+#mount --bind /dev/ /mnt/dev/
+#mount --bind /proc/ /mnt/proc/
+#mount --bind /sys/ /mnt/sys/
 
 chroot /mnt grub-install $DEVICE
 chroot /mnt update-grub
-
-umount /mnt/dev
-umount /mnt/proc
-umount /mnt/sys
+#alterando para uma forma mais inteligente de desmontar as pastas
+for i in /sys /proc /dev; do umount /mnt$i; done
+#umount /mnt/dev
+#umount /mnt/proc
+#umount /mnt/sys
 umount $EFI
 umount $RECOVERY
 
