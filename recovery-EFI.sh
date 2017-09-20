@@ -8,7 +8,7 @@
 
 if [ $# -ne 2 ]; then
 
-   echo -e '\033[31m Utilização: $0 [Disco] - (ex:/dev/sda) [Arquivo de Particionamento] - (ex: HD500.gpt)\033[m';
+   echo -e '\033[31m Utilização: [Disco] (ex:/dev/sda) | [Arquivo de Particionamento] (ex: HD500.gpt)\033[m';
 
    exit 1;
 fi
@@ -53,7 +53,7 @@ atualiza_recovery() {
 
     for i in /sys /proc /dev; do mount --bind $i /mnt$i; done
 
-    chroot /mnt grub-install $DEVICE
+    chroot /mnt gecho -e '\033[31m Escolha uma das opções acima\033[m'rub-install $DEVICE
 
     chroot /mnt update-grub
 
