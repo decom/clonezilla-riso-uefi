@@ -1,6 +1,6 @@
 # RISO-UEFI
 Sistema RISO de Recuperação de Imagens de Sistemas Operacionais feito para UEFI e GPT
-# Manual de criação do pendrive bootável do Clonezilla com clonezilla-riso
+# Manual de criação do pendrive bootável do Clonezilla com clonezilla-riso-UEFI
 ## Manual de criação do pendrive bootável do Clonezilla
 
 - Baixe o [arquivo zip](http://clonezilla.org/downloads.php) Clonezilla.
