@@ -288,6 +288,8 @@ instalar_UUID() {
     dialog --sleep 5  --infobox " Atribuindo a UUID padrão nas partições." 10 50
 
     # Atribuindo a UUID na partição EFI
+    
+    mkfs.${SA_PARTEFI} -i `echo ${PARTEFI^^} | tr -d -` ${EFI}
 
     # Atribuindo a UUID a partição riso
 
