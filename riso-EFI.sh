@@ -295,7 +295,7 @@ instalar_UUID() {
 
     e2fsck -f ${RISO} -y
     
-    tune2fs -f -U ${PARTRISO,,} -L "RISO" ${RISO}
+    tune2fs -f -O ^metadata_csum -U ${PARTRISO,,} -L "RISO" ${RISO}
 
     # Atribui a UUID na partição windows
 
@@ -307,7 +307,7 @@ instalar_UUID() {
 
     e2fsck -f ${LINUX} -y
     
-    tune2fs -f -U ${PARTLINUX,,} -L "LINUX" ${LINUX}
+    tune2fs -f -O ^metadata_csum -U ${PARTLINUX,,} -L "LINUX" ${LINUX}
 
     # Atribui a UUID na partição dados
 
