@@ -35,7 +35,11 @@ aplica_tabela_particionamento(){
 
     # "--load-backup=" aponta para o arquivo com as partições ${TABLE} (ex: HD500.gpt) e aplica no disco ${DEVICE} (ex: /dev/sda) a tabela de particionamento definido no arquivo HD500.gpt.
 
-    sgdisk -g -Z --load-backup=${TABLE} ${DEVICE}
+    sgdisk -Z ${DEVICE}
+    
+    sleep 5
+    
+    sgdisk -g --load-backup=${TABLE} ${DEVICE}
 
     dialog --sleep 5  --infobox " A tabela de particionamento foi aplicada com sucesso." 10 50
 
@@ -206,7 +210,11 @@ instalar_riso(){
 
     # "--load-backup=" aponta para o arquivo com as partições ${TABLE} (ex: HD500.gpt) e aplica no disco ${DEVICE} (ex: /dev/sda) a tabela de particionamento definido no arquivo HD500.gpt.
 
-    sgdisk -g -Z --load-backup=${TABLE} ${DEVICE}
+    sgdisk -Z ${DEVICE}
+    
+    sleep 5
+    
+    sgdisk -g --load-backup=${TABLE} ${DEVICE}
 
     dialog --sleep 5  --infobox " Formatando as partições." 10 50
 
